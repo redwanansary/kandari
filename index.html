@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>কান্ডারী শিল্পীগোষ্ঠী</title>
+
+  <!-- বাংলা ফন্ট -->
+  <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet" />
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'SolaimanLipi', sans-serif;
+      background-color: #FAF6F0;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 20px 0;
+      color: #2E4E3F;
+      font-size: 2em;
+    }
+
+    /* স্ক্রোল টেক্সট */
+    .scroll-text {
+      background: #2E4E3F;
+      color: #F8F4E9;
+      padding: 10px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .scroll-text span {
+      display: inline-block;
+      padding-left: 100%;
+      animation: scroll 15s linear infinite;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* ফটো এলবাম */
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FAF6F0;
+    }
+
+    .slides-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .slides-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .slides-container img.active {
+      opacity: 1;
+    }
+
+    /* বাটন */
+    .btn-group {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .btn {
+      position: relative;
+      overflow: hidden;
+      background: #2E4E3F;
+      color: #F8F4E9;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      font-family: 'SolaimanLipi', sans-serif;
+      transition: transform 0.3s, background 0.3s;
+      min-width: 120px; 
+      text-align: center;
+    }
+    .btn:hover {
+      transform: scale(1.05);
+      background: #3c6a57;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.2), rgba(255,255,255,0.6), rgba(255,255,255,0.2));
+      transform: skewX(-25deg);
+    }
+    .btn:hover::after {
+      animation: shine 0.8s forwards;
+    }
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 125%; }
+    }
+
+    /* বিভাগ শিরোনাম */
+    .section-wrapper {
+      margin: 30px 0;
+      padding: 20px;
+      background: #F0EEE9;
+      border-radius: 10px;
+    }
+    .section-title {
+      margin-bottom: 15px;
+      font-size: 1.5em;
+      color: #2E4E3F;
+      font-weight: bold;
+    }
+
+    /* সোশ্যাল মিডিয়া আইকন (ফুটার) */
+    .footer {
+      margin-top: 40px;
+      padding: 15px 0;
+      background: #2E4E3F;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+    }
+    .footer a {
+      color: #F8F4E9;
+      font-size: 24px;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .footer a:hover {
+      transform: scale(1.2);
+      color: #FFD700;
+    }
+
+    @media (max-width: 768px) {
+      .slider {
+        height: 250px;
+      }
+      .btn {
+        padding: 10px 18px;
+        font-size: 0.9em;
+        min-width: 100px; 
+      }
+      .btn-group {
+        gap: 10px;
+      }
+      .footer a {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>কান্ডারী শিল্পীগোষ্ঠী</h1>
+
+  <div class="scroll-text">
+    <span>সুস্থ ধারার সংস্কৃতি আমরা সবাই চর্চা করি আমরা কান্ডারী</span>
+  </div>
+
+  <!-- ফটো এলবাম -->
+  <div class="slider">
+    <div class="slides-container">
+     <img src="https://scontent.fdac3-1.fna.fbcdn.net/v/t39.30808-6/494127102_1347653940283712_4582561103908465739_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeE9m914OaJulV0_ZZukhiX-kz92AOqTXvGTP3YA6pNe8duS1VkdHKMWf0aCOqn1XWXs-_p6BD2hqYILhT5oLh98&_nc_ohc=fPH74qpgw_cQ7kNvwGvwlvX&_nc_oc=Adn-ybtcDZFygZOG5IgMSCYyJxeZZG924O-WzUrWZl6eeFgwpIGu3kJXyhMDZltTIn2PkJYcaP2-fSRf3y3qj03J&_nc_zt=23&_nc_ht=scontent.fdac3-1.fna&_nc_gid=kCt4lKTclL_s7GTDV4xFVA&oh=00_AfUkByUvcU2zsM_CGEFvf8endL9R-3nzwNT6VAwxjO1Q9A&oe=68B85EEB" class="active" alt="Photo 1">
+      <img src="https://scontent.fzyl5-1.fna.fbcdn.net/v/t39.30808-6/530064101_1293612992489500_2117027209261214347_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=101&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEsB2PVmTRL5nhYD_wWeaWPP6i0cZHxUR8_qLRxkfFRH-RgX9i7jmLLTpz2ST3FEFdN236E5AlCzkxua57RKEPP&_nc_ohc=xNaJCoHptP4Q7kNvwEGcw3Q&_nc_oc=AdmljybFAZVWirlhLFuy9hvSorvNNlz0tVbHuYt9cBt4rSmh4voCerfOskVaCrZENkfRyGMDNlpsvIg2uSBr73hL&_nc_zt=23&_nc_ht=scontent.fzyl5-1.fna&_nc_gid=68hy2_g9eKgNcP6aggVuRw&oh=00_AfUqrjI9gUBGakOd_GcyQbivHE1yS1Kr2c_iI68A2ulCQg&oe=68B7BBA7" alt="Photo 2">
+      <img src="https://scontent.fzyl5-2.fna.fbcdn.net/v/t1.6435-9/90141257_286012845697936_2841278422884286464_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGWcSZxVnMIh5RLWo_DppBRrZSRd9JtaOatlJF30m1o5vnO4366zlIehFZPmh5Ghij6HeE9bN7FQH9cIiPuiJh_&_nc_ohc=TQNCedbJ0MkQ7kNvwFlMGeC&_nc_oc=AdkBesTbN9_UGPaNagR0EUmUemcHucqhmPaLzaQgkiMa7QhjpnYdpJy2c88fHv--xeacgQ4jcPwjQMRzYRaRG1jD&_nc_zt=23&_nc_ht=scontent.fzyl5-2.fna&_nc_gid=mc_KNMnE47clcb9xJsUmpA&oh=00_AfWjEtJFA47gvrlNn6135fhztIzMyljwhrz9Tiw7SU03uw&oe=68D95102" alt="Photo 3">
+      <img src="https://scontent.fdac3-2.fna.fbcdn.net/v/t39.30808-6/477567685_1278413603874413_1530105259766969518_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=86c6b0&_nc_eui2=AeEtvKM8pORjTIbB6LVP05GB-VLW2faEvWn5UtbZ9oS9aVJXyFPiPzJlmOGm-BXN8lUQvmU2MpPivfOOr62Z-6aS&_nc_ohc=L0wyKPwYgUUQ7kNvwEEcDY6&_nc_oc=AdnvOR5lHP8924OKMQ5TveomdmjZh6Qjsxa47ff7b00p7bPjGK21LXH11NhGMxzOi-GIGUYcjmCgisyxm3Z9_RXS&_nc_zt=23&_nc_ht=scontent.fdac3-2.fna&_nc_gid=fodlt-wHsAqxUir5YMqppQ&oh=00_AfVZO_47prykbnoGcJLig4-qekrW_nIJT6CdJDFjWMG0DQ&oe=68B87321" alt="Photo 4">
+    
+    </div>
+  </div>
+
+  <!-- প্রথম বাটন গ্রুপ -->
+  <div class="btn-group">
+    <button class="btn">পরিচিতি</button>
+    <button class="btn">পরিচালনায়</button>
+    <button class="btn">যোগাযোগ</button>
+  </div>
+
+  <!-- প্রথম বিভাগ সেকশন -->
+  <div class="section-wrapper">
+    <div class="section-title">বিভাগ</div>
+    <div class="btn-group">
+      <button class="btn">কুরআন শিক্ষা</button>
+      <button class="btn">সংগীত</button>
+      <button class="btn">থিয়েটার</button>
+      <button class="btn">চিত্রাংকন</button>
+    </div>
+  </div>
+
+  <!-- দ্বিতীয় বিভাগ সেকশন -->
+  <div class="section-wrapper">
+    <div class="section-title">অতিরিক্ত বিভাগ</div>
+    <div class="btn-group">
+      <button class="btn">নাটক</button>
+      <button class="btn">কবিতা</button>
+      <button class="btn">ছবি প্রদর্শনী</button>
+      <button class="btn">অন্যান্য</button>
+    </div>
+  </div>
+
+  <!-- Footer / সোশ্যাল মিডিয়া -->
+  <div class="footer">
+    <a href="https://www.facebook.com/আপনারপেজ" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.youtube.com/আপনারচ্যানেল" target="_blank"><i class="fab fa-youtube"></i></a>
+    <a href="https://wa.me/আপনারনম্বর" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://t.me/kandarinoakhali" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+  </div>
+
+  <script>
+    // স্লাইডার লজিক
+    const slides = document.querySelectorAll('.slides-container img');
+    let current = 0;
+
+    setInterval(() => {
+      slides[current].classList.remove('active');
+      current = (current + 1) % slides.length;
+      slides[current].classList.add('active');
+    }, 4000);
+  </script>
+
+</body>
+</html>
