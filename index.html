@@ -183,6 +183,50 @@
       background: #3c6a57;
       transform: scale(1.1);
     }
+
+    /* মডাল স্টাইল */
+    .modal {
+      display: none; /* ডিফল্টভাবে লুকানো থাকে */
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #FAF6F0;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 90%;
+      text-align: center;
+      position: relative;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 30px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      color: #ff0000;
+    }
+
+    .modal iframe {
+      width: 100%;
+      height: 400px;
+      max-width: 560px;
+    }
   </style>
 </head>
 <body>
@@ -217,27 +261,39 @@
       <button class="btn">কুরআন শিক্ষা</button>
       <button class="btn">সংগীত</button>
       <button class="btn">থিয়েটার</button>
+      
       <button class="btn">চিত্রাংকন</button>
     </div>
   </div>
 
   <!-- বিভাগ সেকশন ২ -->
   <div class="section-wrapper">
-    <div class="section-title">অতিরিক্ত কার্যক্রম</div>
+    <div class="section-title">গ্যালারী</div>
     <div class="btn-group">
-      <button class="btn">চলচ্চিত্র</button>
+    <button class="btn" id="filmBtn">সর্ট ফিল্ম</button>
       <button class="btn">ক্রীড়া</button>
       <button class="btn">নৃত্য</button>
       <button class="btn">আলোচনা</button>
     </div>
   </div>
 
-   <!-- Footer / সোশ্যাল মিডিয়া -->
+  <!-- Footer / সোশ্যাল মিডিয়া -->
   <div class="footer">
     <a href="https://web.facebook.com/kandarishilpigosthi" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.youtube.com/@KandariShilpigosthi" target="_blank"><i class="fab fa-youtube"></i></a>
     <a href="https://wa.me/আপনারনম্বর" target="_blank"><i class="fab fa-whatsapp"></i></a>
     <a href="https://t.me/kandarinoakhali" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+  </div>
+
+  <!-- মডাল পপআপ -->
+  <div id="filmModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>সর্ট ফিল্ম</h2>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=F2Xyu8TshHETLZQ0&amp;list=PLE2XBMW6d5WP6EMZTWSFEvot3m4ryQ8yr" 
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
   </div>
 
   <script>
@@ -250,6 +306,29 @@
       current = (current + 1) % slides.length;
       slides[current].classList.add('active');
     }, 4000);
+
+    // মডাল লজিক
+    const filmBtn = document.getElementById('filmBtn');
+    const modal = document.getElementById('filmModal');
+    const closeBtn = document.querySelector('.close-btn');
+
+    filmBtn.addEventListener('click', () => {
+      modal.style.display = 'flex';
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.style.display = 'none';
+      const iframe = modal.querySelector('iframe');
+      iframe.src = iframe.src; // ভিডিও স্টপ করতে
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.style.display = 'none';
+        const iframe = modal.querySelector('iframe');
+        iframe.src = iframe.src; // ভিডিও স্টপ করতে
+      }
+    });
   </script>
 
 </body>
